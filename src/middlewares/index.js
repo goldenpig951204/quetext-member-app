@@ -739,7 +739,6 @@ const quetextMiddleware = (prefix) => createProxyMiddleware({
             }
             if (req.path == "/undefined") {
                 proxyRes.statusCode = 301;
-                console.log(domain + "/limit-error");
                 proxyRes.headers["location"] = domain + "/limit-error";
                 res.statusCode = 301;
                 res.setHeader("location", domain + "/limit-error");
@@ -792,7 +791,9 @@ const quetextMiddleware = (prefix) => createProxyMiddleware({
                     $(".account-detail-item .account-attribute-edit").remove();
                     $(".account-detail-item #edit-company-info").remove();
                     $("#edit-question").remove();
-                    $("h3:last").remove();
+                    $("#account-section-details > h3").eq(1).remove();
+                    $(".account-detail-item").eq(5).remove();
+                    $("#account-section-details > h3:last").remove();
                     $("button[data-target='#account-archive-confirm-modal']").remove();
                 }
                 if (/^\/search$/.test(req.path)) {
